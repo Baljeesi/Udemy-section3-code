@@ -1,26 +1,43 @@
-import React from 'react';
-import WelcomeBanner from './WelcomeBanner';
-import DeploymentStatus from './DeploymentStatus';
-import ResourceUsage from './ResourceUsage';
-import PodStatus from './PodStatus';
+import React, { useEffect, useState } from 'react';
+import Header from './Header';
+import StatusCard from './StatusCard';
+import Timeline from './Timeline';
+import Footer from './Footer';
+import { FadeIn } from './animations/FadeIn';
 
 const Dashboard: React.FC = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Simulate loading delay for animation purposes
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="p-6 space-y-6">
-      <WelcomeBanner />
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <PodStatus />
-        </div>
-        <div>
-          <DeploymentStatus />
-        </div>
-      </div>
-      
-      <div className="mt-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">Resource Usage</h2>
-        <ResourceUsage />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <Header />
+        
+        <main className="mt-8 sm:mt-16">
+          <FadeIn delay={100}>
+            <StatusCard 
+              title="Deployment Status"
+              status="success"
+              message="Congratulations Build and Deployment of React Application is Successfull using Docker"
+              timestamp={new Date().toLocaleString()}
+            />
+          </FadeIn>
+          
+          <FadeIn delay={300}>
+            <Timeline />
+          </FadeIn>
+        </main>
+        
+        <Footer />
       </div>
     </div>
   );

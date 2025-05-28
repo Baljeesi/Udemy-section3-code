@@ -1,25 +1,23 @@
 import React from 'react';
-import { Cloud } from 'lucide-react';
+import { Code2, GitBranch } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between">
-      <div className="flex items-center space-x-3">
-        <Cloud className="text-[#326CE5] h-8 w-8" />
-        <h1 className="text-xl font-semibold text-gray-800 hidden sm:block">CI/CD Dashboard</h1>
-      </div>
-      
-      <div className="flex items-center space-x-4">
-        <div className="bg-green-100 px-3 py-1 rounded-full flex items-center">
-          <div className="h-2 w-2 rounded-full bg-green-500 mr-2"></div>
-          <span className="text-sm font-medium text-green-700">System Online</span>
+    <header className="pt-8 sm:pt-12">
+      <div className="flex items-center mb-2">
+        <div className="flex items-center justify-center bg-primary-600 text-white p-2 rounded-lg mr-3">
+          <Code2 className="h-6 w-6" />
         </div>
-        <button className="text-gray-600 hover:text-gray-800 transition-colors">
-          <span className="sr-only">User menu</span>
-          <div className="h-8 w-8 rounded-full bg-[#326CE5] text-white flex items-center justify-center">
-            SK
-          </div>
-        </button>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-white tracking-tight">
+          Welcome to CI/CD World <span className="hidden sm:inline">with Sagar Kakkala</span>
+        </h1>
+      </div>
+      <div className="sm:hidden mt-1 text-xl font-medium text-slate-700 dark:text-slate-300">
+        with Sagar Kakkala
+      </div>
+      <div className="flex items-center mt-3 text-slate-600 dark:text-slate-400">
+        <GitBranch className="h-4 w-4 mr-2" />
+        <span className="text-sm">main • Deployed successfully</span>
       </div>
     </header>
   );
