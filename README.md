@@ -1,11 +1,7 @@
----
-
-````markdown
 # 🚀 Deploy React App Using MicroK8s on AWS EC2
 
 This guide walks you through deploying a React application using MicroK8s (a lightweight Kubernetes distribution) on an AWS EC2 instance.
 
----
 
 ## 📦 Setting Up MicroK8s on AWS EC2
 
